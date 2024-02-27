@@ -36,7 +36,7 @@ nav ul {
   text-transform: capitalize;
   font-weight: bold;
 }
-ul a {
+nav a {
   text-decoration: none;
   color: black;
   opacity: 0.8;

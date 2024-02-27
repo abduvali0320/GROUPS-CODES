@@ -11,7 +11,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Button } from "@mui/material";
 export default function Users() {
-  const { users } = useContext(DataContext);
+  const { users, handleDelete, handleEdit} = useContext(DataContext);
   return (
     <TableContainer component={Paper}>
       <Table aria-label="simple table">
@@ -33,10 +33,16 @@ export default function Users() {
                 <TableCell> {user.email} </TableCell>
                 <TableCell> {user.phone} </TableCell>
                 <TableCell>
-                  <Button variant="contained" color="warning">
+                  <Button variant="contained" color="warning"
+                    onClick={() => handleEdit(user)}
+                  >
                     edit
                   </Button>
-                  <Button variant="contained" color="error">
+                  <Button
+                    variant="contained"
+                    color="error"
+                    onClick={() => handleDelete(user.id)}
+                  >
                     delete
                   </Button>
                 </TableCell>

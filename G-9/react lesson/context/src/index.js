@@ -4,9 +4,6 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import DataContext from "./context/Contex";
 const root = ReactDOM.createRoot(document.querySelector("#root"));
-
-
-
 root.render(
   <React.StrictMode>
     <BrowserRouter>

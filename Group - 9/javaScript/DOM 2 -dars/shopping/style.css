@@ -1,0 +1,66 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+.card {
+  width: calc(100% / 5 - 15px);
+}
+.card img {
+  height: 150px;
+}
+.card h1 {
+  font-size: 16px;
+}
+.card .rasm {
+  position: relative;
+}
+.card .like {
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  font-size: 25px;
+  color: rgb(160, 160, 160);
+}
+.card .skidka {
+  position: absolute;
+  background-color: brown;
+  color: white;
+  font-size: 20px;
+  bottom: 10px;
+  left: 10px;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+.card_text h1 {
+  margin: 15px 0;
+}
+.card .kredit_muddat {
+  border-radius: 10px;
+  padding: 5px;
+  background-color: orange;
+  text-align: center;
+}
+.card_qizil {
+  color: red;
+}
+.narx {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+.card_btn button {
+  outline: none;
+  border: none;
+  width: 50%;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  background-color: orange;
+}

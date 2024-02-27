@@ -1,0 +1,98 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+body {
+  background-color: #5e5e5e;
+}
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+button:active {
+  transform: scale(0.95);
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 100px;
+  background-color: rgb(177, 255, 255);
+  align-items: center;
+}
+
+nav h1 {
+  font-size: 35px;
+}
+nav button {
+  padding: 10px 30px;
+  border-radius: 10px;
+  color: white;
+  background-color: green;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 16px;
+}
+form {
+  width: 40%;
+  background-color: cadetblue;
+  padding: 20px;
+  margin: 0 auto;
+  margin-top: 50px;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-end;
+}
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+textarea {
+  resize: none;
+  height: 100px;
+}
+input[type="submit"] {
+  width: auto;
+  cursor: pointer;
+  background-color: dodgerblue;
+  color: white;
+}
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* table  */
+table {
+  margin-top: 50px;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid black;
+  color: white;
+  background-color: cadetblue;
+}
+th,
+td {
+  padding: 10px;
+  text-align: center;
+}
+th:first-child {
+  padding: 0;
+}
+/* table  */

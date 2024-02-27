@@ -1,0 +1,249 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+  border: none;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  max-width: 1920px;
+  margin: auto;
+  padding: 0 20px;
+  overflow: hidden;
+}
+header {
+  background-image: url("./img/Rectangle.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 680px;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+}
+header h1 {
+  font-size: 64px;
+  letter-spacing: 1.28px;
+  padding-top: 80px;
+  padding-bottom: 30px;
+  text-align: center;
+  color: white;
+}
+header p {
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+.sana {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+  gap: 30px;
+  background-color: #f7f7f7;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: -100px;
+  flex-wrap: wrap;
+}
+.sana .sana_box {
+  text-align: center;
+  width: 190px;
+}
+.sana_box h3 {
+  margin: 10px 0;
+  font-size: 36px;
+}
+
+.sana_box h2 {
+  font-size: 72px;
+  color: #f7654a;
+}
+.sana_box p {
+  font-size: 18px;
+  color: grey;
+}
+
+.card hr {
+  width: 55px;
+  height: 6px;
+  background: var(--Accent, #f7654a);
+  margin-top: 45px;
+  margin-bottom: 15px;
+}
+
+.card h2 {
+  color: var(--Dark, #404149);
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.card p {
+  color: #999;
+  font-size: 16px;
+  font-weight: 400;
+  width: 350px;
+  height: 83px;
+}
+
+.card_box {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.project h1 {
+  margin: 50px 0;
+  text-align: center;
+}
+.banner {
+  background-color: #f7654a;
+}
+.banner-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 0 200px; */
+  width: 100%;
+  height: 190px;
+}
+.banner .text h1,
+.banner .text p {
+  color: #fff;
+  line-height: 35px;
+}
+.banner .btn button {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.banner-two {
+  margin: 50px 0 0;
+}
+.banner-two .text {
+  text-align: center;
+}
+.banner-two .cards {
+  margin: 50px 0 0;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: 350px 350px 350px;
+  gap: 20px;
+}
+.cards .card {
+  background-color: #f7f7f7;
+  text-align: center;
+  padding: 30px 0;
+}
+.cards .card p {
+  margin-top: 20px;
+  color: #000000;
+  font-weight: bold;
+  line-height: 25px;
+}
+
+.img {
+  display: grid;
+  grid-template-columns: 350px 350px 350px;
+}
+
+.img2 {
+  display: grid;
+  grid-template-columns: repeat(4, calc(100% / 4));
+}
+
+.wrap .text {
+  margin: 50px 0;
+  text-align: center;
+  color: #000000;
+}
+.wrap h2 {
+  color: #f7654a;
+  font-size: 24px;
+}
+
+.wrap p {
+  width: 40%;
+  font-size: 16px;
+}
+
+.Otzivi {
+  width: 1920px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.Otzivi .otziv {
+  width: 18%;
+  height: 70%;
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.Otzivi .otziv .tpp {
+  width: 80%;
+  height: 60%;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.tpp img {
+  width: 50px;
+}
+.otziv .div {
+  display: flex;
+  font-size: 12px;
+  transform: translateY(90px);
+}
+.otziv .div h2:last-child {
+  color: #f7654a;
+}
+.qalb_gozaligi {
+  text-align: center;
+  margin-top: 100px;
+}
+.logo1 {
+  background-color: #404149;
+  width: 100%;
+  height: 364px;
+}
+.logo1 h1 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 500;
+  transform: translateY(100px);
+}
+.figure1 {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  align-items: center;
+  height: 364px;
+}
+.logo-container {
+  overflow: hidden;
+  margin-top: 100px;
+}

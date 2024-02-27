@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    
+    <!-- * - html va uni ichidagi barcha elementlarni tanlab beradi -->
+    <!-- border - elementni chegarasidagi ko'rinishini hususiyatlarini boshqarib beradi -->
+    <!-- margin elementni tashqi tomondan boshqa elemntga nisbatan (yoki chegaraga nisbatan) masofa ajratib beradi -->
+    <!-- padding elementni ichki tomondan uzining chegarasigacha (border gacha) bo'lgan masofani boshqaruvini taminlab beradi-->
+    <!-- box-sizing - elementni berilgan o'lchamdan oshib ketmasilk uchun yani standart o'lchamga olib kelish uchun hizmat qiladi -->
+
+
+    <!-- (tag > tag) bu holat tag ichidagi tag ni tanlab olish birinchi tag ichida bolsa faqat ichma-ich ochilgan taglar dan tashqari  -->
+    <!-- (tag tag bu holat tag icidagi hamma bolalarini (child larini) tanlab olish demakdir  ) -->
+    <!-- tag , tag (verguldan keyin yozilgan elementlar uchun ham umumiy hususiyatga ega bolish holatidir)  -->
+    <style>
+      *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+    
+      h1, h2, h3, p{
+        background-color:red; 
+        width: 500px;
+        margin: 20px auto;
+        text-align: justify;
+      } 
+
+    </style>
+
+    salom
+    <h1>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem, natus?
+    </h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, quae.</p>
+    <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, suscipit!</h2>
+    <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta commodi voluptas sunt dolorum expedita. Et assumenda exercitationem debitis mollitia accusamus, eius voluptas recusandae expedita vitae!</h3>
+  </body>
+</html>

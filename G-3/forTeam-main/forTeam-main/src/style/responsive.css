@@ -1,0 +1,657 @@
+/* Single Product Responsive */
+@media (max-width: 1260px) {
+  .content_center {
+    max-width: 1000px;
+  }
+
+  .content_in_first_line p {
+    font-size: 18px;
+  }
+
+  .navbar_box ul li a {
+    transition: 0.3s;
+    font-size: 13px;
+  }
+
+  .input_box_in_navbar input {
+    width: 290px;
+    font-size: 14px;
+  }
+
+  .header_in_single_product h1 {
+    font-size: 25px;
+  }
+
+  .third_line_navbar ul li a {
+    font-size: 14px;
+  }
+
+  .path_single {
+    padding: 25px 0 0 0;
+  }
+
+  .main_logo_img_nav {
+    height: 45px;
+  }
+
+  .inpP input {
+    width: 180px;
+    height: 30px;
+    padding-left: 5px;
+  }
+
+  .nayti {
+    padding: 15px 20px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .avtoC h2 {
+    right: 15%;
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .content_center {
+    max-width: 900px;
+  }
+
+  .content_in_first_line p {
+    font-size: 15px;
+  }
+
+  .navbar_box ul li a {
+    transition: 0.3s;
+    font-size: 12px;
+  }
+
+  .main_logo_img_nav {
+    height: 35px;
+  }
+
+  .input_box_in_navbar input {
+    width: 230px;
+    font-size: 14px;
+  }
+
+  .input_box_in_navbar label {
+    width: 20px;
+    height: 22px;
+  }
+
+  .third_line_navbar {
+    padding: 9px 0;
+  }
+
+  .third_line_navbar ul li a {
+    font-size: 12px;
+    line-height: 0px;
+  }
+
+  .header_in_single_product h1 {
+    font-size: 22px;
+  }
+
+  .rating_describtions_orders {
+    gap: 20px;
+  }
+
+  .star_in_rating_card {
+    /* height: 10px; */
+    /* width: 25px; */
+    padding-left: 3px;
+  }
+
+  :root {
+    --desb_order_font: 14px;
+  }
+
+  .descriptions {
+    font-size: var(--desb_order_font);
+  }
+
+  .orders {
+    font-size: var(--desb_order_font);
+  }
+
+  .salary_in_single_product {
+    padding-top: 10px;
+  }
+
+  .salary_in_single_product h3 {
+    font-size: 27px;
+    padding-top: 15px;
+  }
+
+  .salary_in_single_product p {
+    font-size: 18px;
+  }
+
+  .red_btn_in_single_product {
+    padding-top: 25px;
+  }
+
+  .red_btn {
+    font-size: 12px;
+    padding: 12px 50px 11px;
+  }
+
+  .tab_btn {
+    font-size: 15px;
+    padding: 15px 0;
+  }
+
+  .star_in_single_seller_card {
+    font-size: 20px;
+  }
+
+  .tab_control {
+    padding-top: 40px;
+  }
+
+  .desb_card_in_single_seller p {
+    width: 120px;
+    font-size: 12px;
+  }
+
+  .desb_card_in_single_seller span {
+    font-size: 13px;
+  }
+
+  .second_about_product_single_seller {
+    gap: 3px;
+  }
+
+  .third_salary_part_in_single_seller {
+    font-size: 17px;
+  }
+
+  .outline_btn {
+    font-size: 12px;
+    padding: 12px 50px 11px;
+  }
+
+  .last_sevice_and_choose_part_in_single_seller {
+    gap: 20px;
+  }
+
+}
+
+@media screen and (max-width: 1120px) {
+  .inpP input {
+    width: 150px;
+    height: 30px;
+    padding-left: 5px;
+  }
+
+  .nayti {
+    padding: 12px 18px;
+  }
+
+  .katak {
+    height: 390px;
+  }
+
+  .cardD {
+    width: 200px;
+    height: 130px;
+  }
+
+  .cardSS {
+    display: grid;
+    grid-template-columns: repeat(2, calc(100% / 2 - 100px));
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 1005px) {
+  :root {
+    --desb_order_font: 13px;
+  }
+
+  .content_center {
+    max-width: 800px;
+  }
+
+  .rating_card p {
+    font-size: 14px;
+  }
+
+  .salary_in_single_product p {
+    font-size: 16px;
+  }
+
+  .header_in_single_product h1 {
+    font-size: 19px;
+  }
+
+  .rating_describtions_orders {
+    padding-top: 10px;
+  }
+
+  .star_in_rating_card i {
+    font-size: 16px;
+  }
+
+  .input_box_in_navbar input {
+    width: 180px;
+    font-size: 12px;
+  }
+
+  .cart_and_user {
+    width: 30px;
+    height: 30px;
+  }
+
+  .input_box_in_navbar label {
+    width: 29px;
+    /* height: 19px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .input_box_in_navbar {
+    gap: 0;
+  }
+
+  .first_header_part_in_single h2 {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .desb_card_in_single_seller p {
+    width: 90px;
+    font-size: 11px;
+  }
+
+  .desb_card_in_single_seller span {
+    font-size: 12px;
+  }
+
+  .star_in_single_seller_card i {
+    font-size: 15px;
+  }
+
+  .salary_in_single_product h3 {
+    font-size: 22px;
+    padding-top: 13px;
+  }
+
+  .red_btn {
+    font-size: 11px;
+    padding: 8px 40px 8px;
+  }
+
+  .outline_btn {
+    font-size: 11px;
+    padding: 8px 40px 8px;
+  }
+
+
+
+  .detalL h1 {
+    padding: 5px;
+  }
+
+  .inpP {
+    display: grid;
+    grid-template-columns: repeat(2, calc(100%/2));
+  }
+
+  .nayti {
+    margin-top: 10px;
+  }
+
+  .katak {
+    height: 370px;
+  }
+
+  .katak img {
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .content_center {
+    max-width: 700px;
+  }
+
+  .navbar_box ul {
+    display: flex;
+    gap: 15px;
+  }
+
+  .navbar_box ul li a {
+    font-size: 10px;
+  }
+
+  .main_logo_img_nav {
+    width: 50px;
+    height: 25px;
+  }
+
+  .input_box_in_navbar input {
+    width: 170px;
+    font-size: 10px;
+  }
+
+  .input_box_in_navbar label {
+    width: 14px;
+    height: 14px;
+    font-size: 12px;
+  }
+
+  .cart_and_user {
+    width: 25px;
+    height: 25px;
+  }
+
+  .content_in_first_line p {
+    font-size: 12px;
+  }
+
+  .first_line_navbar {
+    padding: 8px 0;
+  }
+
+  .logo {
+    gap: 5px;
+  }
+
+  .logo p {
+    font-size: 12px;
+  }
+
+  .logo i {
+    font-size: 14px;
+  }
+
+  .third_line_navbar {
+    padding: 5px 0;
+  }
+
+  .third_line_navbar ul li a {
+    font-size: 10px;
+    line-height: 0px;
+  }
+
+  .third_line_navbar {
+    padding: 5px 0;
+  }
+
+  .third_line_navbar ul li {
+    line-height: 17px;
+  }
+
+  .path_single a {
+    font-size: 10px;
+  }
+
+  .path_single {
+    padding-top: 15px;
+  }
+
+  .header_in_single_product h1 {
+    font-size: 16px;
+  }
+
+  .star_in_rating_card i {
+    font-size: 12px;
+    margin-left: -2px;
+  }
+
+  .rating_describtions_orders {
+    padding-top: 8px;
+  }
+
+  :root {
+    --desb_order_font: 10px;
+  }
+
+  .rating_card p {
+    font-size: 11px;
+  }
+
+  .desb_card_in_single_seller p {
+    width: 80px;
+    font-size: 9px;
+  }
+
+  .desb_card_in_single_seller span {
+    font-size: 9px;
+  }
+
+  .third_salary_part_in_single_seller {
+    font-size: 13px;
+  }
+
+  .first_header_part_in_single h2 {
+    font-size: 12px;
+  }
+
+  .stars_in_single_seller {
+    padding-top: 2px;
+  }
+
+  .star_in_single_seller_card i {
+    font-size: 13px;
+  }
+
+  .describtion_in_single_seller {
+    font-size: 10px;
+  }
+
+  .outline_btn,
+  .red_btn {
+    font-size: 9px;
+    padding: 7px 36px 7px;
+  }
+
+  .tab_btn {
+    font-size: 12px;
+    padding: 11px 0;
+  }
+
+  .red_btn_in_single_product {
+    padding-top: 17px;
+  }
+
+  .complect {
+    padding-top: 25px;
+  }
+
+  .cardS {
+    display: grid;
+    grid-template-columns: repeat(2, calc(100% / 2 - 100px));
+    justify-content: center;
+    align-items: center;
+  }
+  .cardD{
+    width: auto;  }
+    /* .detalL{
+      left: 140px;
+    } */
+}
+
+@media screen and (max-width: 795px) {
+  .content_center {
+    max-width: 600px;
+  }
+
+  .content_in_first_line p {
+    font-size: 9px;
+  }
+
+  .logo p {
+    font-size: 9px;
+  }
+
+  .logo i {
+    font-size: 10px;
+  }
+
+  .logo {
+    gap: 3px;
+  }
+
+  .first_line_navbar {
+    padding: 3px 0;
+  }
+
+  .input_box_in_navbar input {
+    width: 140px;
+    font-size: 7px;
+  }
+
+  .input_box_in_navbar label {
+    width: 12px;
+    height: 12px;
+    font-size: 10px;
+  }
+
+  .navbar_box ul li a {
+    font-size: 9px;
+  }
+
+  .main_logo_img_nav {
+    width: 35px;
+    height: 20px;
+  }
+
+  .cart_and_user {
+    padding: 4px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .input_box_in_navbar {
+    padding-bottom: 0px;
+  }
+
+  .second_line_navbar {
+    padding: 4px 0;
+  }
+
+  .third_line_navbar ul li a {
+    font-size: 9px;
+    line-height: 0px;
+  }
+
+  .third_line_navbar ul li {
+    line-height: 12px;
+  }
+
+  .third_line_navbar {
+    padding: 5px 0;
+  }
+
+  .path_single a {
+    font-size: 8px;
+  }
+
+  .path_single {
+    padding-top: 10px;
+  }
+
+  .single_main {
+    padding-top: 15px;
+  }
+
+  .header_in_single_product h1 {
+    font-size: 14px;
+  }
+
+  .rating_describtions_orders {
+    padding-top: 5px;
+  }
+
+  .rating_card p {
+    font-size: 8px;
+  }
+
+  :root {
+    --desb_order_font: 8px;
+  }
+
+  .salary_in_single_product p {
+    font-size: 12px;
+  }
+
+  .salary_in_single_product h3 {
+    font-size: 18px;
+    padding-top: 9px;
+  }
+
+  .outline_btn,
+  .red_btn {
+    font-size: 7px;
+    padding: 6px 34px 6px;
+  }
+
+  .red_btn_in_single_product {
+    padding-top: 10px;
+  }
+
+  .complect ul {
+    padding-top: 8px;
+    padding-left: 15px;
+  }
+
+  .header_in_complect {
+    font-size: 10px;
+  }
+
+  .complect ul li {
+    font-size: 8px;
+  }
+
+  .star_in_rating_card i {
+    font-size: 8px;
+  }
+
+  .other_products_images button {
+    width: 70px;
+    height: 60px;
+  }
+
+  .cart_and_user_box {
+    display: flex;
+    gap: 5px;
+  }
+
+  .tab_btn {
+    font-size: 9ыpx;
+    padding: 8px 0;
+  }
+
+  .content_box {
+    padding-top: 20px;
+  }
+
+  .first_header_part_in_single h2 {
+    font-size: 10px;
+  }
+
+  .star_in_single_seller_card i {
+    font-size: 12px;
+  }
+
+  .describtion_in_single_seller {
+    font-size: 8px;
+  }
+
+  .desb_card_in_single_seller p {
+    width: 70px;
+    font-size: 8px;
+  }
+
+  .desb_card_in_single_seller span {
+    font-size: 8px;
+  }
+}
+
+/* Single Product Resp. End */

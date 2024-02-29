@@ -4,23 +4,21 @@ import { DataContext } from "../context/Contex";
 import { useParams } from "react-router-dom";
 
 export default function Form() {
-  const { handleSend, inp_value, get_inp_value, setInp_value,clear_inp_value } =
+  const { handleSend, inpValue, getInpValue, setInpValue, clearInpValue } =
     useContext(DataContext);
 
-  let { user_id } = useParams();
-
+  let { userId } = useParams();
   useEffect(() => {
-    if (user_id) {
-      setInp_value(
+    if (userId) {
+      setInpValue(
         JSON.parse(localStorage.getItem("users")).find(
-          (item) => item.id === +user_id
+          (item) => item.id === +userId
         )
       );
+    } else {
+      clearInpValue();
     }
-    else {
-      clear_inp_value()
-    }
-  },[]);
+  }, []);
 
   return (
     <>
@@ -29,37 +27,37 @@ export default function Form() {
           id="outlined-basic"
           label="name"
           variant="outlined"
-          onChange={get_inp_value}
+          onChange={getInpValue}
           name="name"
           required
-          value={inp_value?.name}
+          value={inpValue?.name}
         />
         <TextField
           id="outlined-basic"
           label="password"
           variant="outlined"
-          onChange={get_inp_value}
+          onChange={getInpValue}
           name="password"
-          value={inp_value?.password}
+          value={inpValue?.password}
           required
         />
         <TextField
           id="outlined-basic"
-          onChange={get_inp_value}
+          onChange={getInpValue}
           label="email"
           variant="outlined"
           name="email"
           required
-          value={inp_value?.email}
+          value={inpValue?.email}
         />
         <TextField
           id="outlined-basic"
           label="phone"
           variant="outlined"
-          onChange={get_inp_value}
+          onChange={getInpValue}
           name="phone"
           required
-          value={inp_value?.phone}
+          value={inpValue?.phone}
         />
         <Button variant="contained" type="submit">
           send

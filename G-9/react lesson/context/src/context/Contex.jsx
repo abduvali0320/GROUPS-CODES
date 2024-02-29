@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -7,7 +8,31 @@ export const DataContext = React.createContext();
 export default function ContextProvider({ children }) {
   const path = useNavigate();
 
-  const [inp_value, setInp_value] = useState({
+  const [data, setData] = useState([]);
+
+  const [load, setLoad] = useState(true);
+
+  const [xatolik, setError] = useState(null);
+
+  useEffect(() => {
+    setLoad(true);
+    axios("https://dummyjson.com/products/", { method: "get" })
+      .then((res) => {
+        setData(res.data.products);
+        // console.log(res);
+      })
+      .catch((err) => {
+        setError(err);
+      })
+      .finally(() => {
+        setLoad(false);
+        console.log("malumot olish tugatildi");
+      });
+
+    axios.get("http://localhost:3000/data").then((kerg) => console.log(kerg));
+  }, []);
+
+  const [inpValue, setInpValue] = useState({
     name: "",
     password: "",
     email: "",
@@ -21,8 +46,8 @@ export default function ContextProvider({ children }) {
     setUsers(JSON.parse(localStorage.getItem("users")) || []);
   };
 
-  const clear_inp_value = () => {
-    setInp_value({
+  const clearInpValue = () => {
+    setInpValue({
       name: "",
       password: "",
       email: "",
@@ -32,11 +57,11 @@ export default function ContextProvider({ children }) {
 
   const handleSend = (e) => {
     e.preventDefault();
-    if (!inp_value.id) {
-      // setUsers([...users, { ...inp_value, id: Date.now() }]);
+    if (!inpValue.id) {
+      // setUsers([...users, { ...inpValue, id: Date.now() }]);
       localStorage.setItem(
         "users",
-        JSON.stringify([...users, { ...inp_value, id: Date.now() }])
+        JSON.stringify([...users, { ...inpValue, id: Date.now() }])
       );
       localRefresh_users();
       Swal.fire({
@@ -55,11 +80,11 @@ export default function ContextProvider({ children }) {
         denyButtonText: `saqlanmasin`,
       }).then((result) => {
         if (result.isConfirmed) {
-          // setUsers(users.map((c) => (c.id === inp_value.id ? inp_value : c)));
+          // setUsers(users.map((c) => (c.id === inpValue.id ? inpValue : c)));
           localStorage.setItem(
             "users",
             JSON.stringify(
-              users.map((c) => (c.id === inp_value.id ? inp_value : c))
+              users.map((c) => (c.id === inpValue.id ? inpValue : c))
             )
           );
           localRefresh_users();
@@ -71,13 +96,13 @@ export default function ContextProvider({ children }) {
     }
 
     e.target.reset();
-    clear_inp_value();
+    clearInpValue();
     path("/table");
   };
 
-  const get_inp_value = (e) => {
-    setInp_value({
-      ...inp_value,
+  const getInpValue = (e) => {
+    setInpValue({
+      ...inpValue,
       [e.target.name]: e.target.value,
     });
   };
@@ -98,7 +123,7 @@ export default function ContextProvider({ children }) {
           "users",
           JSON.stringify(users.filter((item) => item.id !== user_id))
         );
-        clear_inp_value();
+        clearInpValue();
         localRefresh_users();
         Swal.fire({
           title: "O'chirildi!",
@@ -109,7 +134,7 @@ export default function ContextProvider({ children }) {
     });
   };
   const handleEdit = (user) => {
-    setInp_value(user);
+    setInpValue(user);
     path(`/${user?.id}`);
   };
 
@@ -117,13 +142,16 @@ export default function ContextProvider({ children }) {
     <DataContext.Provider
       value={{
         handleSend,
-        inp_value,
-        get_inp_value,
+        inpValue,
         users,
         handleDelete,
         handleEdit,
-        setInp_value,
-        clear_inp_value,
+        setInpValue,
+        getInpValue,
+        clearInpValue,
+        data,
+        load,
+        xatolik,
       }}
     >
       {children}

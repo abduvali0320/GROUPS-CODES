@@ -734,7 +734,7 @@ button {
 }
 
 .container section .vegetables_fruits .vf .product:hover {
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
 }
 
 .container section .new_products .heading p {

@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <div class="cart_box">
+      <button onclick="close_modal()"><i class="fa-solid fa-xmark"></i></button>
+      <div class="savatcha"></div>
+    </div>
+
     <div class="container">
       <nav>
         <div class="nav1">
@@ -25,7 +30,7 @@
           <div class="side2">
             <h1><ion-icon name="call-outline"></ion-icon> 1800-000-000</h1>
             <img src="img/Vector.png" alt="" />
-            <span class="like_count"> 0 </span>
+            <span class="like_count"> <b class="umumiy"></b> </span>
             <div class="section">
               <label for="John_Doe"
                 ><ion-icon name="person-outline"></ion-icon> John Doe</label
@@ -45,14 +50,10 @@
               <li class="li">CONTACT</li>
             </ul>
           </div>
-          <div class="side2">
-            <form action="">
-              <label for="cart"
-                ><ion-icon name="cart-outline"></ion-icon> CART 2</label
-              >
-              <section></section>
-            </form>
-          </div>
+          <button class="cart_btn">
+            cart <i class="fa-solid fa-cart-shopping"></i>
+            <span class="cart_count">10</span>
+          </button>
         </div>
       </nav>
     </div>
@@ -143,6 +144,7 @@
             <p>For You</p>
             <h5>Top Featured Products</h5>
           </div>
+
           <div class="products"></div>
         </div>
 

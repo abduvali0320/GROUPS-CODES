@@ -8,6 +8,7 @@ let products = [
       price: 21,
       count: 0,
       isLike: false,
+      category_id: "products",
     },
     {
       id: 1,
@@ -18,6 +19,7 @@ let products = [
       price: 25,
       count: 0,
       isLike: false,
+      category_id: "products",
     },
     {
       id: 2,
@@ -28,6 +30,7 @@ let products = [
       price: 22,
       count: 0,
       isLike: false,
+      category_id: "products",
     },
     {
       id: 3,
@@ -38,6 +41,7 @@ let products = [
       price: 14,
       count: 0,
       isLike: false,
+      category_id: "products",
     },
     {
       id: 4,
@@ -48,6 +52,7 @@ let products = [
       price: 10,
       count: 0,
       isLike: false,
+      category_id: "products",
     },
   ],
   products_2 = [
@@ -57,9 +62,10 @@ let products = [
       img: "img/bapple.png",
       inStock_count: 4,
       name: "Fresh organic apricot",
+      isLike: false,
       price: 21,
       count: 0,
-      isLike: false,
+      category_id: "products_2",
     },
     {
       id: 101,
@@ -69,6 +75,7 @@ let products = [
       name: "Red apple",
       price: 25,
       count: 0,
+      category_id: "products_2",
       isLike: false,
     },
     {
@@ -79,6 +86,7 @@ let products = [
       name: "Pear fruit",
       price: 22,
       count: 0,
+      category_id: "products_2",
       isLike: false,
     },
     {
@@ -89,6 +97,7 @@ let products = [
       name: "Blueberry",
       price: 14,
       count: 0,
+      category_id: "products_2",
       isLike: false,
     },
     {
@@ -99,75 +108,86 @@ let products = [
       name: "Fresh raspberry",
       price: 10,
       count: 0,
+      category_id: "products_2",
       isLike: false,
     },
   ],
   products_3 = [
     {
-      id: 100,
+      id: 1000,
       sale: 17,
+      isLike: false,
       img: "img/ginger.png",
       inStock_count: 4,
       name: "Ginger",
       price: 21,
       count: 0,
-      isLike: false,
+      category_id: "products_3",
     },
     {
-      id: 101,
+      id: 1001,
       sale: 12,
       img: "img/figs.png",
       inStock_count: 0,
       name: "Two fresh figs",
       price: 25,
       count: 0,
+      category_id: "products_3",
       isLike: false,
     },
     {
-      id: 102,
+      id: 1002,
       sale: 14,
       img: "img/strawberry.png",
       inStock_count: 3,
       name: "Strawberry",
       price: 22,
       count: 0,
+      category_id: "products_3",
       isLike: false,
     },
     {
-      id: 103,
+      id: 1003,
       sale: 17,
       img: "img/eggplant.png",
       inStock_count: 0,
       name: "eggplant",
       price: 14,
       count: 0,
+      category_id: "products_3",
       isLike: false,
     },
     {
-      id: 104,
+      id: 1004,
       sale: 8,
       img: "img/egg.png",
       inStock_count: 10,
       name: "egg",
       price: 10,
       count: 0,
+      category_id: "products_3",
       isLike: false,
     },
   ],
-  products_box = document.querySelector(".products"),
-  like_count = document.querySelector(".like_count");
+  like_count = document.querySelector(".like_count"),
+  savatcha = [],
+  cart_box = document.querySelector(".cart_box"),
+  savatcha_box = document.querySelector(".savatcha"),
+  cart_btn = document.querySelector(".cart_btn");
 
 // true ? console.log('salom') : console.log('hello');
 
-function read_product(data, element) {
-  console.log(element);
-  element.innerHTML = ``;
+function read_product(data, element, cart = true) {
+  const el = document.querySelector(element);
+  el.innerHTML = ``;
   for (const obj of data) {
-    element.innerHTML += `
+    el.innerHTML += `
       <div class="product">
         <div class="heading">
             <p> ${obj.sale}%Off</p>
-            <button onclick='handleLike(${obj.id})'>
+            <button onclick='handleLike(${obj.id} ,${JSON.stringify(
+      data
+    )}, "${element}")'>
               ${
                 obj.isLike
                   ? ` <i class="fa-solid fa-heart"></i>`
@@ -190,111 +210,101 @@ function read_product(data, element) {
               (obj.price / 100) * obj.sale
             ).toFixed(2)}  <del>$${obj.price} </del></p>
         </div>
+        ${
+          cart
+            ? `
         <div class="buttons">
-            <div class="plus_minus">
-                <button onclick='handleMinus(${obj.id},${JSON.stringify(
-      data
-    )}, ${element})' >-</button>
-                <h1> ${obj.count}</h1>
-                <button onclick='handlePlus(${obj.id})'>+</button>
-            </div>
-            <a href="#"><img src="img/Vector (1).png" alt=""></a>
+        <div class="plus_minus">
+            <button onclick='handleMinus(${obj.id},${JSON.stringify(
+                data
+              )}, "${element}")' >-</button>
+            <h1> ${obj.count}</h1>
+            <button onclick='handlePlus(${obj.id},${JSON.stringify(
+                data
+              )}, "${element}")'>+</button>
         </div>
+        <button onclick='add_to_cart(${obj.id}, ${JSON.stringify(data)})'>
+          <i class="fa-solid fa-cart-plus"></i>
+        </button>
+    </div> 
+        `
+            : ` ${obj.count} `
+        }
       </div>
     `;
   }
 }
 
-read_product(products, products_box);
+read_product(products, ".products");
+read_product(products_2, ".vf");
+read_product(products_3, ".new_p");
 
 // read_products();
-function handleLike(item_id) {
-  // console.log(cevfjew);
-  products = products.map((item) =>
-    item.id === item_id ? { ...item, isLike: !item.isLike } : item
+function handleLike(item_id, massiv, class_nomi) {
+  massiv = massiv.map((item) =>
+    item.id === item_id
+      ? {
+          ...item,
+          isLike: !item.isLike,
+        }
+      : item
   );
-
-  read_products();
-  like_count_inner();
+  read_product(massiv, class_nomi);
 }
 
-const like_count_inner = () => {
-  like_count.innerHTML = [...products, ...products_2, ...products_3].filter(
-    (item) => item.isLike === true
-  ).length;
+const like_count_inner = () => {};
+
+const handleMinus = (item_id, massiv, class_nomi) => {
+  console.log(item_id, massiv, class_nomi);
+  massiv = massiv.map((k) => {
+    return k.id === item_id ? { ...k, count: k.count - 1 } : k;
+  });
+  read_product(massiv, class_nomi);
 };
-
-like_count_inner();
-
-const handleMinus = (item_id, massiv, k) => {
-  // massiv = massiv.map((k) => {
-  //   return k.id === item_id ? { ...k, count: k.count - 1 } : k;
-  // });
-  // read_product(massiv, k);
-};
-
-const handlePlus = (item_id) => {
-  products = products.map((c) =>
+const handlePlus = (item_id, array, class_nomi) => {
+  array = array.map((c) =>
     item_id === c.id && c.count < c.inStock_count
       ? { ...c, count: c.count + 1 }
       : c
   );
-  read_products();
+  // console.log(item_id, array, class_nomi);
+  read_product(array, class_nomi);
 };
 
-// ikkinchi cardlar uchun
-let products_box_2 = document.querySelector(".vf");
-read_product(products_2, products_box_2);
+// let qiymat = true
+// if(qiymat) {
+//   console.log('salom');
+// }
 
-function handleLike_2(ID) {
-  products_2 = products_2.map((item) =>
-    item.id === ID ? { ...item, isLike: !item.isLike } : item
-  );
-  read_products_2();
-  like_count_inner();
-}
-function handleMinus_2(id) {
-  products_2 = products_2.map((item) =>
-    item.id === id && item.count > 0 ? { ...item, count: item.count - 1 } : item
-  );
-  read_products_2();
-}
-function handlePlus_2(id) {
-  products_2 = products_2.map((item) =>
-    item.id === id && item.count < item.inStock_count
-      ? { ...item, count: item.count + 1 }
-      : item
-  );
-  read_products_2();
-}
+const add_to_cart = function (ID, array) {
+  let obj = array.find((c) => c.id === ID);
+  // savatcha.push(item)
 
-// ikkinchi cardlar uchun
-let products_box_3 = document.querySelector(".new_p");
+  if (!savatcha.find((p) => p.id === ID) && obj.inStock_count > 0) {
+    savatcha.push(obj);
+  } else {
+    // alert('savatcha mahsulot mavjud')
+    savatcha = savatcha.map((item) =>
+      item.id === ID ? { ...item, count: item.count + 1 } : item
+    );
+  }
 
-read_product(products_3, products_box_3);
+  document.querySelector(".cart_count").innerHTML = savatcha.length;
 
-function handleLike_3(ID) {
-  products_3 = products_3.map((item) =>
-    item.id === ID ? { ...item, isLike: !item.isLike } : item
-  );
-  read_products_3();
-  like_count_inner();
-}
+  // savatcha = [...savatcha, item]
+  // savatcha = savatcha.concat(item);
+  console.log(savatcha);
+  read_product(savatcha, ".savatcha", false);
+};
 
-function handleMinus_3(id) {
-  products_3 = products_3.map((item) =>
-    item.id === id && item.count > 0 ? { ...item, count: item.count - 1 } : item
-  );
-  read_products_3();
-}
-function handlePlus_3(id) {
-  products_3 = products_3.map((item) =>
-    item.id === id && item.count < item.inStock_count
-      ? { ...item, count: item.count + 1 }
-      : item
-  );
-  read_products_3();
-}
+cart_btn.addEventListener("click", function () {
+  document.body.style.overflow = "hidden";
+  cart_box.style.top = "0";
+  // cart_box.style.opacity = "1";
+});
 
-// console.log(JSON.stringify(products));
-// console.log(products);
+const close_modal = function () {
+  document.body.style.overflow = "auto";
+  cart_box.style.top = "-100vh";
+  // cart_box.style.opacity = "0";
+};

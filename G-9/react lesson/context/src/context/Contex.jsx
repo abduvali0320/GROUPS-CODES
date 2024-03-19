@@ -29,9 +29,8 @@ export default function ContextProvider({ children }) {
         console.log("malumot olish tugatildi");
       });
 
-    axios.get("http://localhost:3000/data").then((kerg) => console.log(kerg));
+    // axios.get("http://localhost:3000/data").then((kerg) => console.log(kerg));
   }, []);
-
   const [inpValue, setInpValue] = useState({
     name: "",
     password: "",

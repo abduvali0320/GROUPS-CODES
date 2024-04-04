@@ -10,6 +10,9 @@
 
 // console.log(Math.round(20.5));
 
+// let son = BigInt(5444);
+// console.log(son);
+
 // Number;
 // String;
 // BigInt;
@@ -131,4 +134,18 @@
 // };
 
 // hodisa(5, 58, "salom", "dfewf", "few", "fef");
+
+// let obj = {
+//   name: "john",
+//   age: 19
+// }
+
+// let m = [55, 5, true, false, undefined, NaN]
+// for of //  value
+
+// rest;
+// const sayName = (...a) => {
+//     console.log(a);
+// };
+// sayName(55, 88, 588);
 

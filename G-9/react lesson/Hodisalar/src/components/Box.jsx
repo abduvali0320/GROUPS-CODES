@@ -1,30 +1,34 @@
 import React from "react";
 
-export default function Box({ cart }) {
-  return (
-    <div>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">sarlavha </th>
-            <th scope="col">count</th>
-            <th scope="col">fovourit</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cart.map((item, index) => {
-            return (
-              <tr key={item.id}>
-                <th> {index + 1} </th>
-                <td> {item.sarlavha} </td>
-                <td> {item.count} </td>
-                <td> {item.like ? "yoqtirilgan" : "yoqtirilmagan"} </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
-  );
+function Box({ propNomi, name }) {
+    // console.log(k);
+    // let { propNomi } = k;
+  // console.log(name);
+    return <div>Box</div>;
 }
+
+function Box_1() {
+    return <div>Box</div>;
+}
+function Box_2() {
+    return <div>Box</div>;
+}
+function Box_3() {
+    return <div>Box</div>;
+}
+
+export { Box, Box_2, Box_1, Box_3 };
+
+// Box.defaultProps = {
+//     name: "Murodjon",
+// };
+
+// const sayName = (name) => {
+//   console.log("salom " + name);
+// }
+
+// const sayAge = (age) => {
+//   console.log("mening yoshim " + age);
+// }
+
+// sayAge('abror')

@@ -6,6 +6,7 @@ import ContactUs from "./ContactUs";
 import Service from "./Service";
 import About from "./About";
 import About_child from "../components/About_child";
+import SingleUser from "./SingleUser";
 
 export default function Pages() {
     return (
@@ -17,7 +18,7 @@ export default function Pages() {
                         <Route path="about_child" element={<About_child />} />
                     </Route>
                     <Route path="/service" element={<Service />} />
-                    <Route path="/service/:nomi" element={<Service />} />
+                    <Route path="/service/:nomi" element={<SingleUser />} />
                     <Route path="/contact" element={<ContactUs />} />
                 </Route>
             </Routes>

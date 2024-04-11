@@ -1,6 +1,4 @@
 import "./App.css";
-import { Box } from "./components/Box";
-import Navbar from "./components/Navbar";
 import Pages from "./pages/Pages";
 function App() {
     let text =
@@ -8,13 +6,7 @@ function App() {
 
     return (
         <>
-            {/* <h1>ss</h1> */}
-            {/* <Box propNomi={text} /> */}
-
-            {/* <Navbar /> */}
             <Pages />
-
-            
         </>
     );
 }

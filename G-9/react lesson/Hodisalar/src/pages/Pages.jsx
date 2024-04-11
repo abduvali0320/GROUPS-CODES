@@ -7,6 +7,7 @@ import Service from "./Service";
 import About from "./About";
 import About_child from "../components/About_child";
 import SingleUser from "./SingleUser";
+import Product from "./Product";
 
 export default function Pages() {
     return (
@@ -20,6 +21,7 @@ export default function Pages() {
                     <Route path="/service" element={<Service />} />
                     <Route path="/service/:nomi" element={<SingleUser />} />
                     <Route path="/contact" element={<ContactUs />} />
+                    <Route path="/products" element={<Product />} />
                 </Route>
             </Routes>
         </>

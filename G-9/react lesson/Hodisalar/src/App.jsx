@@ -14,12 +14,7 @@ function App() {
             {/* <Navbar /> */}
             <Pages />
 
-            <h1 className="text-green">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Repellendus, quasi provident tempora quidem tempore, quod
-                inventore quis exercitationem illo sit itaque quam fugiat
-                aperiam perferendis error dignissimos doloribus aliquam hic!
-            </h1>
+            
         </>
     );
 }

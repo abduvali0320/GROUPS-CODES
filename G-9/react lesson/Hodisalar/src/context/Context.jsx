@@ -8,29 +8,6 @@ export default function DatasProvider({ children }) {
     const [singleInfo, setSingleInfo] = useState({});
     const [lang, setLang] = useState(localStorage.getItem("lan") || "en");
     const lang_datas = { ru, en, uz };
-    let people = [
-        {
-            id: 0,
-            name: "Abror",
-            age: 18,
-        },
-        {
-            id: 1,
-            name: "Gulhayo",
-            age: 15,
-        },
-        {
-            id: 2,
-            name: "Maftuna",
-            age: 18,
-        },
-        {
-            id: 3,
-            name: "Dilnoza",
-            age: 18,
-        },
-    ];
-
     let products = [
         {
             id: 1,
@@ -51,6 +28,7 @@ export default function DatasProvider({ children }) {
                 "https://cdn.dummyjson.com/product-images/1/4.jpg",
                 "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
             ],
+            color: "red",
         },
         {
             id: 2,
@@ -61,6 +39,7 @@ export default function DatasProvider({ children }) {
             discountPercentage: 17.94,
             rating: 4.44,
             stock: 34,
+            color: "red",
             brand: "Apple",
             category: "smartphones",
             thumbnail:
@@ -81,6 +60,7 @@ export default function DatasProvider({ children }) {
             discountPercentage: 15.46,
             rating: 4.09,
             stock: 36,
+            color: "yellow",
             brand: "Samsung",
             category: "smartphones",
             thumbnail:
@@ -93,6 +73,7 @@ export default function DatasProvider({ children }) {
             description: "OPPO F19 is officially announced on April 2021.",
             price: 280,
             discountPercentage: 17.91,
+            color: "black",
             rating: 4.3,
             stock: 123,
             brand: "OPPO",
@@ -115,6 +96,7 @@ export default function DatasProvider({ children }) {
             price: 499,
             discountPercentage: 10.58,
             rating: 4.09,
+            color: "silver",
             stock: 32,
             brand: "Huawei",
             category: "smartphones",
@@ -136,6 +118,7 @@ export default function DatasProvider({ children }) {
             rating: 4.57,
             stock: 83,
             brand: "Apple",
+            color: "silver",
             category: "laptops",
             thumbnail:
                 "https://cdn.dummyjson.com/product-images/6/thumbnail.png",
@@ -156,6 +139,7 @@ export default function DatasProvider({ children }) {
             rating: 4.25,
             stock: 50,
             brand: "Samsung",
+            color: "black",
             category: "laptops",
             thumbnail:
                 "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
@@ -176,6 +160,7 @@ export default function DatasProvider({ children }) {
             rating: 4.43,
             stock: 68,
             brand: "Microsoft Surface",
+            color: "borwn",
             category: "laptops",
             thumbnail:
                 "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg",
@@ -198,6 +183,7 @@ export default function DatasProvider({ children }) {
             stock: 96,
             brand: "Infinix",
             category: "laptops",
+            color: "red",
             thumbnail:
                 "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg",
             images: [
@@ -219,6 +205,7 @@ export default function DatasProvider({ children }) {
             stock: 89,
             brand: "HP Pavilion",
             category: "laptops",
+            color: "black",
             thumbnail:
                 "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg",
             images: [
@@ -237,6 +224,7 @@ export default function DatasProvider({ children }) {
             discountPercentage: 8.4,
             rating: 4.26,
             stock: 65,
+            color: "green",
             brand: "Impression of Acqua Di Gio",
             category: "fragrances",
             thumbnail:
@@ -257,6 +245,7 @@ export default function DatasProvider({ children }) {
             discountPercentage: 15.66,
             rating: 4,
             stock: 52,
+            color: "green",
             brand: "Royal_Mirage",
             category: "fragrances",
             thumbnail:
@@ -277,6 +266,7 @@ export default function DatasProvider({ children }) {
             price: 13,
             discountPercentage: 8.14,
             rating: 4.59,
+            color: "white",
             stock: 61,
             brand: "Fog Scent Xpressio",
             category: "fragrances",
@@ -298,6 +288,7 @@ export default function DatasProvider({ children }) {
             price: 120,
             discountPercentage: 15.6,
             rating: 4.21,
+            color: "red",
             stock: 114,
             brand: "Al Munakh",
             category: "fragrances",
@@ -318,6 +309,7 @@ export default function DatasProvider({ children }) {
             price: 30,
             discountPercentage: 10.99,
             rating: 4.7,
+            color: "black",
             stock: 105,
             brand: "Lord - Al-Rehab",
             category: "fragrances",
@@ -338,6 +330,7 @@ export default function DatasProvider({ children }) {
                 "L'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid",
             price: 19,
             discountPercentage: 13.31,
+            color: "silver",
             rating: 4.83,
             stock: 110,
             brand: "L'Oreal Paris",
@@ -358,6 +351,7 @@ export default function DatasProvider({ children }) {
             description:
                 "Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,",
             price: 12,
+            color: "black",
             discountPercentage: 4.09,
             rating: 4.52,
             stock: 78,
@@ -381,6 +375,7 @@ export default function DatasProvider({ children }) {
             discountPercentage: 13.1,
             rating: 4.56,
             stock: 88,
+            color: "yellow",
             brand: "Dermive",
             category: "skincare",
             thumbnail:
@@ -403,6 +398,7 @@ export default function DatasProvider({ children }) {
             rating: 4.42,
             stock: 54,
             brand: "ROREC White Rice",
+            color: "yellow",
             category: "skincare",
             thumbnail:
                 "https://cdn.dummyjson.com/product-images/19/thumbnail.jpg",
@@ -422,6 +418,7 @@ export default function DatasProvider({ children }) {
             discountPercentage: 16.99,
             rating: 4.06,
             stock: 140,
+            color: "silver",
             brand: "Fair & Clear",
             category: "skincare",
             thumbnail:
@@ -439,6 +436,7 @@ export default function DatasProvider({ children }) {
             title: "- Daal Masoor 500 grams",
             description:
                 "Fine quality Branded Product Keep in a cool and dry place",
+            color: "green",
             price: 20,
             discountPercentage: 4.81,
             rating: 4.44,
@@ -461,6 +459,7 @@ export default function DatasProvider({ children }) {
             price: 14,
             discountPercentage: 15.58,
             rating: 4.57,
+            color: "yellow",
             stock: 146,
             brand: "Bake Parlor Big",
             category: "groceries",
@@ -478,6 +477,7 @@ export default function DatasProvider({ children }) {
             description:
                 "Specifications of Orange Essence Food Flavour For Cakes and Baking Food Item",
             price: 14,
+            color: "pink",
             discountPercentage: 8.04,
             rating: 4.85,
             stock: 26,
@@ -495,6 +495,7 @@ export default function DatasProvider({ children }) {
         },
         {
             id: 24,
+            color: "pink",
             title: "cereals muesli fruit nuts",
             description:
                 "original fauji cereal muesli 250gm box pack original fauji cereals muesli fruit nuts flakes breakfast cereal break fast faujicereals cerels cerel foji fouji",
@@ -520,6 +521,7 @@ export default function DatasProvider({ children }) {
             description:
                 "Dry Rose Flower Powder Gulab Powder 50 Gram • Treats Wounds",
             price: 70,
+            color: "pink",
             discountPercentage: 13.58,
             rating: 4.87,
             stock: 47,
@@ -541,6 +543,7 @@ export default function DatasProvider({ children }) {
             description:
                 "Boho Decor Plant Hanger For Home Wall Decoration Macrame Wall Hanging Shelf",
             price: 41,
+            color: "red",
             discountPercentage: 17.86,
             rating: 4.08,
             stock: 131,
@@ -565,6 +568,7 @@ export default function DatasProvider({ children }) {
             price: 51,
             discountPercentage: 15.58,
             rating: 4.41,
+            color: "brown",
             stock: 17,
             brand: "Flying Wooden",
             category: "home-decoration",
@@ -584,6 +588,7 @@ export default function DatasProvider({ children }) {
             description:
                 "3D led lamp sticker Wall sticker 3d wall art light on/off button  cell operated (included)",
             price: 20,
+            color: "pink",
             discountPercentage: 16.49,
             rating: 4.82,
             stock: 54,
@@ -608,6 +613,7 @@ export default function DatasProvider({ children }) {
             discountPercentage: 15.34,
             rating: 4.44,
             stock: 7,
+            color: "black",
             brand: "luxury palace",
             category: "home-decoration",
             thumbnail:
@@ -626,6 +632,7 @@ export default function DatasProvider({ children }) {
             description:
                 "Attractive DesignMetallic materialFour key hooksReliable & DurablePremium Quality",
             price: 30,
+            color: "silver",
             discountPercentage: 2.92,
             rating: 4.92,
             stock: 54,
@@ -641,11 +648,13 @@ export default function DatasProvider({ children }) {
             ],
         },
     ];
-
+    products = products.map((c) => {
+        return { ...c, like: false, count: 1 };
+    });
+    
     return (
         <Datas.Provider
             value={{
-                people,
                 singleInfo,
                 setSingleInfo,
                 lang_datas,

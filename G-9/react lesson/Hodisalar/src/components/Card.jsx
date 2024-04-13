@@ -9,6 +9,7 @@ export default function Card(prop) {
                 <h5 className="card-title"> {items?.title} </h5>
                 <p className="card-text"> brand: {items?.brand}</p>
                 <p className="card-text"> category: {items?.category}</p>
+                <p className="card-text"> color: {items?.color}</p>
             </div>
         </div>
     );

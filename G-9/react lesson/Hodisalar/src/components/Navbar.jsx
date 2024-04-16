@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { Datas } from "../context/Context";
-
+import FavoriteIcon from "@mui/icons-material/Favorite";
 export default function Navbar() {
     let { lang_datas, lang } = useContext(Datas);
-    let { setLang } = useContext(Datas);
+    let { setLang, filterData } = useContext(Datas);
 
     let language = ["uz", "en", "ru"];
     function getLanguage(lan) {
@@ -40,8 +40,14 @@ export default function Navbar() {
                         </li>
                         <li>
                             <NavLink to="/contact">
-                                {lang_datas[lang]?.link_4}{" "}
+                                {lang_datas[lang]?.link_4}
                             </NavLink>
+                        </li>
+                        <li className="bg-pink p-3 text-gray-light">
+                            <span>
+                                {filterData.filter((item) => item.like).length > 0 ? filterData.filter((item) => item.like).length : ''}
+                            </span>
+                            <FavoriteIcon />
                         </li>
                         <li className="language relative mb-7">
                             <span className="absolute flex flex-col gap-1 z-10">

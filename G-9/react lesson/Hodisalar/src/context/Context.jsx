@@ -6,6 +6,7 @@ export const Datas = createContext();
 
 export default function DatasProvider({ children }) {
     const [singleInfo, setSingleInfo] = useState({});
+    const [price, setPrice] = useState([0, 1500]);
     const [lang, setLang] = useState(localStorage.getItem("lan") || "en");
     const lang_datas = { ru, en, uz };
     let products = [
@@ -651,7 +652,15 @@ export default function DatasProvider({ children }) {
     products = products.map((c) => {
         return { ...c, like: false, count: 1 };
     });
-    
+    const [filterData, setFiltderData] = useState(products);
+    const handleLike = (param_id) => {
+        // console.log(param_id);
+        setFiltderData(
+            filterData.map((p) =>
+                p.id === param_id ? { ...p, like: !p.like } : p
+            )
+        );
+    };
     return (
         <Datas.Provider
             value={{
@@ -661,6 +670,11 @@ export default function DatasProvider({ children }) {
                 lang,
                 setLang,
                 products,
+                price,
+                setPrice,
+                filterData,
+                setFiltderData,
+                handleLike,
             }}
         >
             {children}

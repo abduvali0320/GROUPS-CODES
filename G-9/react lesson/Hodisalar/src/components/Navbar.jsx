@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { Datas } from "../context/Context";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import LocalMallIcon from '@mui/icons-material/LocalMall';
 export default function Navbar() {
     let { lang_datas, lang } = useContext(Datas);
-    let { setLang, filterData } = useContext(Datas);
+    let { setLang, filterData, cart } = useContext(Datas);
 
     let language = ["uz", "en", "ru"];
     function getLanguage(lan) {
@@ -14,6 +15,19 @@ export default function Navbar() {
     if (!language.includes(localStorage.getItem("lan"))) {
         localStorage.setItem("lan", "en");
         setLang(localStorage.getItem("lan"));
+    }
+
+    const like_count = () => {
+        let like_number = filterData.filter((item) => item.like).length
+        if (like_number > 0) {
+            if (like_number > 9) {
+                return "+" + 9
+            }
+            else {
+                return like_number
+            }
+        }
+        return ''
     }
     return (
         <>
@@ -43,11 +57,14 @@ export default function Navbar() {
                                 {lang_datas[lang]?.link_4}
                             </NavLink>
                         </li>
-                        <li className="bg-pink p-3 text-gray-light">
-                            <span>
-                                {filterData.filter((item) => item.like).length > 0 ? filterData.filter((item) => item.like).length : ''}
+                        <li className="bg-pink p-2 text-gray-light rounded-lg">
+                            <span className="w-5 inline-block" >
+                                {like_count()}
                             </span>
                             <FavoriteIcon />
+                        </li>
+                        <li>
+                            <Link to={'/cart-table'} className="cart_btn" >  {cart.length > 0 ? cart.length : ''}  <LocalMallIcon /> </Link>
                         </li>
                         <li className="language relative mb-7">
                             <span className="absolute flex flex-col gap-1 z-10">

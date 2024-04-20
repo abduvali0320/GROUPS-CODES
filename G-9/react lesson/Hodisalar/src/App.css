@@ -26,6 +26,15 @@ li a:hover {
     background-color: grey;
     color: white;
 }
+li .cart_link  {
+    padding: 10px 15px;
+    margin: 0 10px;
+    border-radius:10px ;
+}
+.cart_btn {
+    padding: 10px;
+    margin: 0 15px;
+}
 .active {
     background-color: silver;
     color: white;

@@ -8,8 +8,7 @@ import Slider_price from "../components/Slider_price";
 import { Button } from "@mui/material";
 
 export default function Product() {
-    const { products, price, filterData, setFiltderData } = useContext(Datas);
-
+    const { products, price, setFiltderData, paginationData, btns, getIndex, currentPage, handelPrev, handelNext } = useContext(Datas);
     const handleFilter = () => {
         setFiltderData(
             products.filter(
@@ -18,17 +17,6 @@ export default function Product() {
                     c.color.includes(color) &&
                     price[0] <= c.price &&
                     price[1] >= c.price
-            )
-        );
-    };
-
-    const handleSearch = () => {
-        setFiltderData(
-            products.filter(
-                (c) =>
-                    c.brand.toLowerCase().trim().includes(search) ||
-                    c.title.toLowerCase().trim().includes(search) ||
-                    c.category.toLowerCase().trim().includes(search)
             )
         );
     };
@@ -47,8 +35,17 @@ export default function Product() {
     const [ctg, setCtg] = useState("");
     const [color, setColor] = useState("");
 
-    // let p = products.filter((l) => 500 < l.price && l.price < 1500);
-    // console.log(p);
+    const handleSearch = () => {
+        setFiltderData(
+            products.filter(
+                (c) =>
+                    c.brand.toLowerCase().trim().includes(search) ||
+                    c.title.toLowerCase().trim().includes(search) ||
+                    c.category.toLowerCase().trim().includes(search)
+            )
+        );
+    };
+
 
     return (
         <div className="continer">
@@ -60,8 +57,7 @@ export default function Product() {
                         color="info"
                         onClick={handleFilter}
                     >
-                        {" "}
-                        filt{" "}
+                        filt
                     </Button>
                 </div>
                 <div className="border ps-2 w-10/12 flex items-center rounded-lg overflow-hidden">
@@ -155,16 +151,32 @@ export default function Product() {
                         <Slider_price />
                     </div>
                 </div>
-                <div className="grid-cols-4 grid gap-2 p-2">
-                    {filterData
-                        // .filter(
-                        //     (c) =>
-                        //         c.brand.toLowerCase().trim().includes(search) ||
-                        //         c.category.toLowerCase().trim().includes(search)
-                        // )
-                        .map((item) => {
-                            return <Card items={item} key={item.id} />;
-                        })}
+                <div>
+                    <div className="grid-cols-4 grid gap-2 p-2">
+                        {paginationData
+                            // .filter(
+                            //     (c) =>
+                            //         c.brand.toLowerCase().trim().includes(search) ||
+                            //         c.category.toLowerCase().trim().includes(search)
+                            // )
+                            .map((item) => {
+                                return <Card items={item} key={item.id} />;
+                            })}
+                    </div>
+                    <div>
+                        <button onClick={handelPrev} > prev </button>
+                        {
+                            btns.map(btn => {
+                                return (
+                                    <button
+                                        onClick={() => getIndex(btn)}
+                                        className={`${currentPage === btn ? "bg-orange" : "bg-pink"}  p-3 px-4 rounded-lg mx-2 text-gray-light text-xl `} key={btn} > {btn} </button>
+                                )
+                            })
+                        }
+                        <button onClick={handelNext} > next </button>
+
+                    </div>
                 </div>
             </div>
         </div>

@@ -2,6 +2,7 @@ import React, { createContext, useState } from "react";
 import { ru } from "../assets/ru";
 import { en } from "../assets/en";
 import { uz } from "../assets/uz";
+
 export const Datas = createContext();
 
 export default function DatasProvider({ children }) {
@@ -9,6 +10,9 @@ export default function DatasProvider({ children }) {
     const [price, setPrice] = useState([0, 1500]);
     const [lang, setLang] = useState(localStorage.getItem("lan") || "en");
     const lang_datas = { ru, en, uz };
+
+    const [cart, setCart] = useState([])
+
     let products = [
         {
             id: 1,
@@ -654,13 +658,56 @@ export default function DatasProvider({ children }) {
     });
     const [filterData, setFiltderData] = useState(products);
     const handleLike = (param_id) => {
-        // console.log(param_id);
         setFiltderData(
             filterData.map((p) =>
                 p.id === param_id ? { ...p, like: !p.like } : p
             )
         );
     };
+    function getItemArray(item) {
+        // console.log(item); // item bu  umumiy mahsulotlardan tanlab olingan malumotga teng (qaysi cardagi buttonni bosilgan bo'lsa shu obj ga teng)
+        if (!cart.find(p => p.id === item.id)) {
+            setCart([...cart, item])
+            // window.alert('mahsulot qo`shildi')
+        }
+        else {
+            // window.alert('bu mahsulot mavjud')
+            setCart(cart.map(p => p.id === item.id ? { ...p, count: p.count + 1 } : p))
+        }
+
+    }
+
+    const handleDel = (ID) => {
+        let confirm = window.confirm('o`chirasizmi')
+        console.log(confirm);
+        if (confirm) {
+            setCart(cart.filter(c => c.id !== ID))
+        }
+    }
+
+    const [currentPage, setCurrentPage] = useState(1)
+    let showProductCount = 7
+    let lastIndex = currentPage * showProductCount
+    let firstIndex = lastIndex - showProductCount
+    let paginationData = filterData.slice(firstIndex, lastIndex)
+    let nPage = Math.ceil(filterData.length / showProductCount)
+    let btns = [...Array(nPage + 1).keys()].slice(1)
+
+    const getIndex = (index) => {
+        // console.log(index);
+        setCurrentPage(index)
+
+    }
+    const handelPrev = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1)
+        }
+    }
+    const handelNext = () => {
+        if (currentPage < nPage) {
+            setCurrentPage(currentPage + 1)
+        }
+    }
     return (
         <Datas.Provider
             value={{
@@ -675,6 +722,16 @@ export default function DatasProvider({ children }) {
                 filterData,
                 setFiltderData,
                 handleLike,
+                getItemArray,
+                cart,
+                handleDel,
+                paginationData,
+                btns,
+                getIndex,
+                currentPage,
+                handelPrev,
+                handelNext
+
             }}
         >
             {children}

@@ -6,6 +6,7 @@ import ContactUs from "./ContactUs";
 import About from "./About";
 import About_child from "../components/About_child";
 import Product from "./Product";
+import CartTable from "./CartTable";
 
 export default function Pages() {
     return (
@@ -18,6 +19,7 @@ export default function Pages() {
                     </Route>
                     <Route path="/contact" element={<ContactUs />} />
                     <Route path="/products" element={<Product />} />
+                    <Route path="/cart-table" element={<CartTable />} />
                 </Route>
             </Routes>
         </>

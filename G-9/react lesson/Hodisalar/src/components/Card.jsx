@@ -6,6 +6,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 export default function Card(prop) {
     const { handleLike, getItemArray } = useContext(Datas);
     let { items } = prop;
+    console.log(items);
     return (
         <div className="card relative">
             <img className="card-img-top" alt="..." src={items?.thumbnail} />

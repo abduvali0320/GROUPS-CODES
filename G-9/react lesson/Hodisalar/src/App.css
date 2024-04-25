@@ -95,3 +95,32 @@ li .cart_link  {
     font-size: 100px;
     background-color: white;
 }
+
+.carousel {
+    display: grid ;
+    /* width: calc(7 * 30%); */
+    height: 500px;
+    grid-template-columns: repeat(7,  calc(100% / 1));
+}   
+.box {
+    width: 500px;
+    /* overflow: hidden; */
+    margin:  0 auto;
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.carousel figure {
+    animation: rasm alternate 1s infinite linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+@keyframes rasm {
+    to {
+        transform:translateX(-50%) ;
+    }
+}

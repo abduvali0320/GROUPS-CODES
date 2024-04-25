@@ -24,19 +24,19 @@ function HomeSlider() {
             </div>
         );
     };
-
     const settings = {
         dots: false,
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: false,
-        speed: 500,
-        autoplaySpeed: 500,
+        autoplay: true,
+        speed: 15000,
+        autoplaySpeed: 15000,
         cssEase: "linear",
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
     };
+
     const { products } = useContext(Datas);
     return (
         <Slider {...settings}>

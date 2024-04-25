@@ -653,6 +653,7 @@ export default function DatasProvider({ children }) {
             ],
         },
     ];
+
     products = products.map((c) => {
         return { ...c, like: false, count: 1 };
     });
@@ -664,6 +665,7 @@ export default function DatasProvider({ children }) {
             )
         );
     };
+
     function getItemArray(item) {
         // console.log(item); // item bu  umumiy mahsulotlardan tanlab olingan malumotga teng (qaysi cardagi buttonni bosilgan bo'lsa shu obj ga teng)
         if (!cart.find(p => p.id === item.id)) {

@@ -8,6 +8,7 @@ import Slider_price from "../components/Slider_price";
 import { Button } from "@mui/material";
 
 export default function Product() {
+    
     const { products, price, setFiltderData, paginationData, btns, getIndex, currentPage, handelPrev, handelNext } = useContext(Datas);
     const handleFilter = () => {
         setFiltderData(

@@ -5,7 +5,7 @@ import { Button } from '@mui/material';
 export default function CartTable() {
   const { cart, handleDel } = useContext(Datas)
   return (
-    <div className='px-10' >
+    <div className='px-10'>
       <table border={1} className='table' >
         <thead>
           <tr>
@@ -32,8 +32,8 @@ export default function CartTable() {
                     <td> {item.title} </td>
                     <td> {item.price} </td>
                     <td> {item.count} </td>
-                    <td> 
-                      <Button variant='contained' color='error' title='delete' 
+                    <td>
+                      <Button variant='contained' color='error' title='delete'
                         onClick={() => handleDel(item.id)}
                       >  <ClearIcon /> </Button>
                     </td>

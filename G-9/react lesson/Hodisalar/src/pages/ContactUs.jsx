@@ -1,5 +1,41 @@
 import React from "react";
+import Slider from "react-slick";
 
-export default function ContactUs() {
-    return <div>contactUs</div>;
+function ContactUs() {
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        waitForAnimate: false,
+        fade: false,
+    };
+    return (
+        <div className="slider-container px-52 bg-blue ">
+            <Slider {...settings}>
+                <div>
+                    <h3>1</h3>
+                </div>
+                <div className="bg-green"  >
+                    <h3>2</h3>
+                    fewkjbf
+                </div>
+                <div>
+                    <h3>3</h3>
+                </div>
+                <div>
+                    <h3>4</h3>
+                </div>
+                <div>
+                    <h3>5</h3>
+                </div>
+                <div>
+                    <h3>6</h3>
+                </div>
+            </Slider>
+        </div>
+    );
 }
+
+export default ContactUs;

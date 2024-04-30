@@ -1,0 +1,8 @@
+a {
+    text-decoration: none;
+    color: black;    
+    border-bottom: 1px solid transparent;
+}
+.active {
+  border-bottom-color: black;
+}

@@ -1,17 +1,30 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { userRemove } from '../redux/action/Users_action'
-
-export default function Users() {
-  const { users } = useSelector(state => state.Users_reducer)
+import axios from 'axios'
+function Users({ setInputValue }) {
+  const { users, isLoading } = useSelector(state => state.Users_reducer)
   const dispatch = useDispatch()
-  const handleDelete = (ID) => {
+  const handleDelete = async (ID) => {
     let confirm = window.confirm('o`chirasizmi')
     if (confirm) {
-      dispatch(userRemove(ID))
+      dispatch({ type: "loading", payload: true })
+      try {
+        let response = await axios.delete(`http://localhost:3000/users/${ID}`)
+        dispatch(userRemove(response.data.id))
+      } catch (error) {
+        console.log(error);
+      }
+      finally {
+        dispatch({ type: "loading", payload: false })
+      }
     }
   }
-
+  if (isLoading) {
+    return (
+      <h1> Loading.... </h1>
+    )
+  }
   return (
     <table className='talbe' >
       <thead>
@@ -37,7 +50,9 @@ export default function Users() {
                   <td> {user.age} </td>
                   <td> {user.job} </td>
                   <td> {user.live} </td>
-                  <td> <button className='bg-blue-800 py-2 px-3 text-white rounded-lg' > edit </button> </td>
+                  <td> <button className='bg-blue-800 py-2 px-3 text-white rounded-lg'
+                    onClick={() => setInputValue(user)}
+                  > edit </button> </td>
                   <td> <button className='bg-red-800 py-2 px-3 text-white rounded-lg'
                     onClick={() => handleDelete(user.id)}
                   > delete </button> </td>
@@ -54,3 +69,5 @@ export default function Users() {
     </table>
   )
 }
+
+export default Users

@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": "199a",
+      "name": "temur",
+      "lastName": "Olimov",
+      "job": "teacher",
+      "live": "teshiktosh",
+      "age": "17"
+    },
+    {
+      "id": "6bc3",
+      "name": "shoxruh",
+      "lastName": "karimov",
+      "job": "shashlikchi",
+      "live": "namangan",
+      "age": "12"
+    }
+  ]
+}

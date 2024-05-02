@@ -1,24 +1,42 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch } from 'react-redux'
-import { userAdd } from '../redux/action/Users_action'
+import axios from 'axios'
 
-export default function Create() {
-
+export default function Create({ setInputValue, inputValue }) {
   const dispatch = useDispatch()
-
-  const [inputValue, setInputValue] = useState({
-    name: '',
-    lastName: "",
-    job: "",
-    live: '',
-    age: "",
-  })
-
-  const sendFunc = function (e) {
+  const sendFunc = async function (e) {
     e.preventDefault()
-    // console.log(inputValue);
-    e.target.reset()
-    dispatch(userAdd({ ...inputValue, id: Date.now()}))
+    dispatch({ type: "loading", payload: true })
+    if (!inputValue.id) {
+      try {
+        let response = await axios.post('http://localhost:3000/users', inputValue)
+        dispatch({ type: "create", payload: response.data })
+      } catch (error) {
+        console.log(error);
+      }
+      finally {
+        dispatch({ type: "loading", payload: false })
+      }
+    }
+    else {
+      try {
+        let response = await axios.put(`http://localhost:3000/users/${inputValue.id}`, inputValue)
+        dispatch({ type: "edit", payload: response.data })
+      } catch (error) {
+        console.log(error);
+      }
+      finally {
+        dispatch({ type: "loading", payload: false })
+      }
+
+    }
+    setInputValue({
+      name: '',
+      lastName: "",
+      job: "",
+      live: '',
+      age: "",
+    })
   }
 
   const getInputValue = (e) => {
@@ -32,15 +50,17 @@ export default function Create() {
   return (
     <div className='form' >
       <form onSubmit={sendFunc} >
-        <input type="text" placeholder='name' name='name' className='p-2 border-solid border-2 rounded-md
+        <input type="text" placeholder='name' name='name' value={inputValue?.name} className='p-2 border-solid border-2 rounded-md
           border-gray-500
         '  onChange={getInputValue} />
-        <input type="text" placeholder='last name' name='lastName' className='p-2 border-solid border-2 rounded-md border-gray-500 ' onChange={getInputValue} />
-        <input type="text" placeholder='job' name='job' onChange={getInputValue} className='p-2 border-solid border-2 rounded-md border-gray-500' />
-        <input type="text" placeholder='live' name='live' className='p-2 border-solid border-2 rounded-md  border-gray-500' onChange={getInputValue} />
-        <input type="number" placeholder='age' name='age' className='p-2 border-solid border-2 rounded-md  border-gray-500' onChange={getInputValue} />
+        <input type="text" placeholder='last name' value={inputValue?.lastName} name='lastName' className='p-2 border-solid border-2 rounded-md border-gray-500 ' onChange={getInputValue} />
+        <input type="text" placeholder='job' name='job' onChange={getInputValue} value={inputValue?.job} className='p-2 border-solid border-2 rounded-md border-gray-500' />
+        <input type="text" placeholder='live' name='live'
+          value={inputValue?.live}
+          className='p-2 border-solid border-2 rounded-md  border-gray-500' onChange={getInputValue} />
+        <input type="number" value={inputValue?.age} placeholder='age' name='age' className='p-2 border-solid border-2 rounded-md  border-gray-500' onChange={getInputValue} />
         <div className='text-right mt-3' >
-          <button type='submit' className='bg-blue-700 text-white py-2 px-4 rounded-lg' > create </button>
+          <button type='submit' className='bg-blue-700 text-white py-2 px-4 rounded-lg' >  {inputValue?.id ? 'save' : 'create'}  </button>
         </div>
       </form>
     </div>

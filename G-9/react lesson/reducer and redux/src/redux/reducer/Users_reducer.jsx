@@ -2,6 +2,7 @@ let initialState = {
   users: [],
   isLoading: true
 }
+
 export default function Users_reducer(state = initialState, { type, payload }) {
   switch (type) {
     case "getUser": return { ...state, users: payload }
